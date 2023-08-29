@@ -68,6 +68,19 @@ Route::group(['prefix' => 'v1', 'middleware' => ['api', 'throttle:api']], functi
                 'deleteApiToken'
             ]
         )->name('api.personal-access-token.delete');
+        
+        Route::get('acceptances',
+            [
+                Api\AcceptanceController::class,
+                'index'
+            ]
+            )->name('api.acceptances.index');
+        Route::post('accept/{acceptance_id}',
+            [
+                Api\AcceptanceController::class,
+                'store'
+            ]
+            )->name('api.acceptances.index');
 
 
 
